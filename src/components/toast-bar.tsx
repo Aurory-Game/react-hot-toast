@@ -70,7 +70,7 @@ const getAnimationStyle = (
 };
 
 export const ToastBar: React.FC<ToastBarProps> = React.memo(
-  ({ toast, position, style, children }) => {
+  ({ toast, position, style, onClick, children }) => {
     const animationStyle: React.CSSProperties = toast.height
       ? getAnimationStyle(
           toast.position || position || 'top-center',
@@ -93,6 +93,7 @@ export const ToastBar: React.FC<ToastBarProps> = React.memo(
           ...style,
           ...toast.style,
         }}
+        onClick={onClick}
       >
         {typeof children === 'function' ? (
           children({
